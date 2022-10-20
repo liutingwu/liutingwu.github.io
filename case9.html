@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  body{font-size:30px;}
+  input{font-size:30px;
+		margin:10px;
+		width:140px;
+		height:50px;
+	}
+  </style>
+  
+
+ </head>
+ <body>
+ <div id="question">
+ <input id="num1" type="text" value="**">
+ <span>+</span>
+ <input id="num2" type="text" value="**">
+ </div>
+ <div id="anwser">
+ A.<input id="A" type="button" value="**">
+ B.<input id="B" type="button" value="**">
+ C.<input id="C" type="button" value="**">
+ D.<input id="D" type="button" value="**">
+ </div>
+ <div id="a"><input id="E" type="button" value="正确答案"><input id="F" type="text" value=""></div>
+
+ <Script>
+   
+   var num1dom=document.querySelector("input#num1");
+   var num2dom=document.querySelector("input#num2");
+   var num1=parseInt(21*Math.random());
+   var num2=parseInt(21*Math.random());
+   var num=num1+num2;
+   //创建2个数组
+   var arr1=new Array();
+   var arr2=new Array();
+   arr1.push(num);
+   num1dom.value=num1;
+   num2dom.value=num2;
+   var doms=document.querySelectorAll("div#anwser input");
+//产生3个零到四十不重复的随机数
+  while(arr1.length<4)
+   {   var anwser=parseInt(41*Math.random());
+	   choose(arr1,anwser,41);
+   }
+   //产生4个不重复的零到四的随机数
+
+   while(arr2.length<4){
+	   var b=parseInt(4*Math.random());
+	   choose(arr2,b,4);
+   }
+ //把数组中的数据随机给选项
+   for(i=0;i<4;i++){
+	   doms[i].value=arr1[arr2[i]];
+	   }
+   for(i=0;i<4;i++){
+	  if(doms[i].value==num){
+		  doms[i].onclick=function(){
+		  alert("正确");}
+		  }else{doms[i].onclick=function(){
+		  alert("错误");}}
+	  }
+   var dom1=document.querySelector("input#E");
+   var dom2=document.querySelector("input#F");
+   dom1.onclick=function(){//点击显示答案
+	   for(i=0;i<4;i++){
+		   if(parseInt(doms[i].value)===num)
+				dom2.value=num;
+			}
+		}
+   
+
+   
+   //排除答案相同情况,参数分别为数组 随机数 范围
+   function choose(arr,ch,q){
+		for(j=0;j<4;j++){
+		   if(ch==arr[j]){
+			 ch=parseInt(q*Math.random());
+			 return;
+			
+			 }
+			 if(arr==null){arr.push(ch);}
+			}
+			arr.push(ch);
+   }
+  </Script>
+
+ 
+ </body>
+</html>

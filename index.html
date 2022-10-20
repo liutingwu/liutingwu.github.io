@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <style>
+  body{font-size:30px;
+  background:url("https://pic.quanjing.com/vu/zx/QJ6477001913.jpg@!794ws");
+  background-repeat:no-repeat ;
+  background-size:100% 100%;
+  background-attachment: fixed;" 
+	}
+  .q{
+	background:rgb(221,233,206);
+	margin:0;
+	border-radius:8px;}
+  .q li{
+  list-style:none outside none;
+  position:relative;
+  padding:0 115px;
+  margin:5px;
+  display:inline-block;
+}
+a{font-family:"Arial";color:brown;text-decoration:none}/*消除超链接下划线;*/
+img{display:none;}
+  </style>
+ </head>
+ <body>
+ 
+  <ul class="q">
+  <li><a href="index.html">首页</a></li>
+  <li><a href="case.html">作业</a></li>
+  <li><input id="picture1"type="button"value="二维码"style="border:0;background:rgb(221,233,206);font-size:30px;color:brown;font-family:"Arial"""></li>
+  <li><input id="picture2"type="button"value="照片"style="border:0;background:rgb(221,233,206);font-size:30px;color:brown;font-family:"Arial"""></li>
+  </ul><img src="二维码.jpg" id="jpg">
+ <script>
+ document.querySelector("input#picture1").onclick=function(){document.getElementById("jpg").style.display="block";
+ document.querySelector("input#picture2").onclick=function(){document.getElementById("jpg").style.display="block";
+	
+	}
+ }
+ </script>
+</body>
+</html>
