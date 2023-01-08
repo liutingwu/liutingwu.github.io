@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <style>
+    body{
+	 overflow:hidden;
+	 margin:0;
+	 cursor: pointer;
+	}
+    div{
+	 width:50px;
+	 height:50px;
+	 background-color:rgba(200,127,200,0.8);
+	 border-radius:100%;
+	 border:0.5px dashed;
+	 display:inline-block;
+	 position:absolute;
+	 transition:all 1s;
+	 box-shadow: 0 0 50px rgb(200,124,200);
+	 }
+	p{
+	 margin:15px;
+	 color:red;
+	 font-size:20px;
+	 }
+   </style>
+
+ </head>
+ <body>
+  <script type="text/javascript">
+  <!--
+   var key = 0;
+   var num = 0;
+   var bodyWidth = window.innerWidth ; 
+   var bodyHeight = window.innerHeight ;
+   document.body.style.width = bodyWidth + 'px';
+   document.body.style.height = bodyHeight + 'px' ;
+   const s = ['20203055刘廷武。千山鸟飞绝，万径人踪灭。孤州蓑笠翁，独钓寒江雪。松下问童子，言师采药去。只在此山中，云深不知处。','牛渚西江夜，青天无片云。登舟望秋月，空忆谢将军。余亦能高咏，斯人不可闻。明朝挂帆席，枫叶落纷纷。','吾爱孟夫子，风流天下闻。红颜弃轩冕，白首卧松云。醉月频中圣，迷花不事君。高山安可仰，徒此挹清芬。'];
+   document.body.ondblclick = function(){
+	   num++;
+	   console.log("ondblick");
+	   key++;
+	   if(key>2){key=0;}
+	   var doms = document.getElementsByTagName ("div");
+	   for(i=doms.length-1;i>=0;i--)//removeChild函数顺序执行会造成每次只有一半元素被删除，逆序可解决
+	   {
+		   document.body.removeChild(doms[i]);
+	   }
+	   
+	   create(s[key]);
+
+   }
+   create(s[key]);
+   function create(object){
+   for(i = 0;i < object.length;i++)
+   {
+	var divDom = document.createElement('div');
+	var pDom = document.createElement('p');
+	pDom.textContent = object[i];
+	divDom.appendChild(pDom);
+	randomPosition(divDom);
+	document.body.appendChild(divDom);
+	}
+   }
+   document.body.onclick = function(){
+	   var doms = document.getElementsByTagName ("div");
+	   for(i=0;i<doms.length;i++)
+	   {
+		randomPosition(doms[i]);
+	   }
+   }
+   document.body.onmousemove = document.body.ontouchmove = function(){
+	   var doms = document.getElementsByTagName ("div");
+	   for (i=0;i<doms.length;i++ )
+	   {
+		   
+		   var a = i%6 ;
+		   var b = i/6 ;
+		   setPosition(doms[i],a,b);
+	   }
+   };
+   function randomPosition(dom){
+	var x = Math.floor(Math.random()*bodyWidth);
+	var y = Math.floor(Math.random()*bodyHeight);
+	if(x>bodyWidth-50){
+		x = x - 50;
+		}
+	if(y>bodyHeight-50){
+		y = y - 50;
+	    }
+	dom.style.left = x + 'px';
+	dom.style.top = y + 'px';
+   }
+
+
+	function setPosition(dom,a,b){
+		var x = parseInt(a) * 50+50 ;
+		var y = parseInt(b) * 50+100
+		;
+		dom.style.left = x + 'px' ;
+		dom.style.top = y  + 'px' ;
+	}
+   //-->
+  </script>
+ </body>
+</html>
